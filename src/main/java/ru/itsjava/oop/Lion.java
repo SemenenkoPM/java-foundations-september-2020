@@ -1,18 +1,13 @@
 package ru.itsjava.oop;
 
 public class Lion {
-
     private String name;
     private int pawsCount;
-
-
-
 
     public Lion(String name){
         this.name = name;
         pawsCount = 4;
     }
-
 
     public void printLion(){
         System.out.println("Лев с именем " + name);
@@ -29,8 +24,8 @@ public class Lion {
     public int getPawsCount(){
         return pawsCount;
     }
-//    public int setPawsCount(int pawsCount){
-//        this.pawsCount = pawsCount;
-//    }
+    public void setPawsCount(int pawsCount){
+        this.pawsCount = pawsCount;
+    }
 
 }

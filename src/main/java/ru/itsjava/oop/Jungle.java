@@ -11,7 +11,7 @@ public class Jungle {
         scar.printLion();
 
         System.out.println("В наших джунглях есть: " + scar.getName());
-//        System.out.println("Количество лап " + scar.getName()) + ":" + scar.getPawsCount();
+        System.out.println("Количество лап " + scar.getName() + ":" + scar.getPawsCount());
 
     }
 }
