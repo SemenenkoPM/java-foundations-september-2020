@@ -6,12 +6,27 @@ public class Jungle {
 
         Lion scar = new Lion("Scar");
 
+        Hyena tabaqui = new Hyena("Табаки");
+
+        tabaqui.setName("Шакал Табаки");
+
+        System.out.println("Имя шакала из 'Маугли' " + tabaqui.getName());
+        System.out.println("Про хвост, сколько: " + tabaqui.getTailCount());
+
+
+
         scar.printLion();
         scar.setName("Король Шрам");
         scar.printLion();
 
         System.out.println("В наших джунглях есть: " + scar.getName());
-        System.out.println("Количество лап " + scar.getName() + ":" + scar.getPawsCount());
+        System.out.println("Количество лап " + scar.getName() + ": " + scar.getPawsCount());
 
+        BritishCat marusya = new BritishCat();
+//        marusya.sayMeow();
+//
+//        marusya.sayMrr();
+        System.out.println("marusya.getBreed()=" + marusya.getBreed());
+        marusya.sayMeow();
     }
 }

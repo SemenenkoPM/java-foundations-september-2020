@@ -1,5 +1,10 @@
 package ru.itsjava.oop;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Lion {
     private String name;
     private int pawsCount;
@@ -13,19 +18,19 @@ public class Lion {
         System.out.println("Лев с именем " + name);
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public int getPawsCount(){
-        return pawsCount;
-    }
-    public void setPawsCount(int pawsCount){
-        this.pawsCount = pawsCount;
-    }
+//    public void setName(String name){
+//        this.name = name;
+//    }
+//
+//    public String getName(){
+//        return name;
+//    }
+//
+//    public int getPawsCount(){
+//        return pawsCount;
+//    }
+//    public void setPawsCount(int pawsCount){
+//        this.pawsCount = pawsCount;
+//    }
 
 }
