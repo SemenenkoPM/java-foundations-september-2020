@@ -1,19 +1,19 @@
-package ru.itsjava.homework1;
+package ru.itsjava.homework1.part1;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Cow1 {
+public class Cow3 {
     private String name;
     private String color;
     private String nameBreed;
 
-    public Cow1(String name){
+    public Cow3(String name){
         this.name = name;
-        color = "черная";
-        nameBreed = "Синяя корова";
+        color = "зеленая";
+        nameBreed = "Швицкая";
     }
 
     public void setNameBreed(String nameBreed) {

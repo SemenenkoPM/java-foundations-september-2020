@@ -1,4 +1,4 @@
-package ru.itsjava.homework1;
+package ru.itsjava.homework1.part1;
 
 import lombok.Getter;
 import lombok.Setter;
