@@ -12,14 +12,13 @@ public class Cows {
 
 
         burenka.setColor("Зеленая");
-        System.out.println("Какого цвета теперь Буренка? - " + burenka.getColor());
+//        System.out.println("Какого цвета теперь Буренка? - " + burenka.getColor());
 
         burenka1.setColor("Белая");
-        System.out.println("Какого цвета теперь Буренка? - " + burenka1.getColor());
+//        System.out.println("Какого цвета теперь Буренка? - " + burenka1.getColor());
         burenka2.setColor("Красная");
-        System.out.println("Какого цвета теперь Буренка? - " + burenka2.getColor());
-
-
-
+//        System.out.println("Какого цвета теперь Буренка? - " + burenka2.getColor());
+        burenka.setNameBreed("Бушуевская");
+        System.out.println("Какая порода у Буренки: " + burenka.getNameBreed());
     }
 }
