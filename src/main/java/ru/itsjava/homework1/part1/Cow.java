@@ -1,4 +1,4 @@
-package ru.itsjava.homework1;
+package ru.itsjava.homework1.part1;
 
 
 import lombok.Getter;
@@ -12,10 +12,10 @@ public class Cow {
     private String color;
     private String nameBreed;
 
-    public Cow(String name){
+    public Cow(String name, String color, String nameBreed){
         this.name = name;
-        color = "рыжая";
-        nameBreed = "Бестужевская";
+        this.color = color;
+        this.nameBreed = nameBreed;
     }
 
     public void setNameBreed(String nameBreed) {
