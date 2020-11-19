@@ -11,15 +11,16 @@ public class Person {
 
     public boolean isMale;
     public String name;
-    public int age;
+    public String age;
 
-    public Person(boolean isMale, String name, int age) {
+    public Person(boolean isMale, String name, String age) {
         this.isMale = isMale;
         this.name = name;
         this.age = age;
     }
 
-    public void printAge(){
-        System.out.println();
+    public String printAge(){
+        return age;
+
     }
 }

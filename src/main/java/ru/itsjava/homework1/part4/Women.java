@@ -3,13 +3,12 @@ package ru.itsjava.homework1.part4;
 
 public class Women extends Person{
 
-    public Women() {
-        super(false, "Sveta", 18);
+    public Women(boolean isMale, String name, String age) {
+        super(isMale = false, name, age = "Всегда 18");
     }
+
     @Override
-    public void printAge(){
-
+    public String printAge(){
+        return age;
     }
-
-
 }
