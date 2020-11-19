@@ -10,16 +10,16 @@ import lombok.Setter;
 public class Person {
 
     private boolean isMale;
-    public String name;
-    public int age;
+    String name;
+    String age;
 
-    public Person(Boolean isMale, String name, int age) {
+    public Person(Boolean isMale, String name, String age) {
         this.isMale = isMale;
         this.name = name;
         this.age = age;
     }
-
-
-
+    public String printAge(){
+        return age;
+    }
 
 }
