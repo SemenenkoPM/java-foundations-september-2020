@@ -9,18 +9,17 @@ import lombok.Setter;
 
 public class Person {
 
-    public boolean isMale;
+    private boolean isMale;
     public String name;
-    public String age;
+    public int age;
 
-    public Person(boolean isMale, String name, String age) {
+    public Person(Boolean isMale, String name, int age) {
         this.isMale = isMale;
         this.name = name;
         this.age = age;
     }
 
-    public String printAge(){
-        return age;
 
-    }
+
+
 }
