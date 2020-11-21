@@ -18,8 +18,8 @@ public class Person {
         this.name = name;
         this.age = age;
     }
-    public String printAge(){
-        return age;
+    public void printAge(){
+        System.out.println("Возраст " + age);
     }
 
 }

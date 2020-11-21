@@ -7,6 +7,8 @@ public class Man extends Person{
         super (true, name, age);
     }
 
-
-
+    @Override
+    public void printAge() {
+        System.out.println("Возраст" + name + ": " + age);
+    }
 }

@@ -9,9 +9,11 @@ public class Register {
         Women katya = new Women("Katya", "20");
         Women anna = new Women("Anna", "40");
 
+
         Person[] persons = new Person[]{petro, oleg, alexey, sveta, katya, anna};
         for (int i = 0; i < persons.length; i++) {
-            System.out.println("Возраст " + persons[i].getName() + " " + persons[i].printAge());
+            persons[i].printAge();
+//            System.out.println("Возраст " + persons[i].getName() + " " + persons[i].printAge());
         }
     }
 }

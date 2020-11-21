@@ -7,9 +7,8 @@ public class Women extends Person{
         super(false, name, age);
     }
 
-
     @Override
-    public String printAge() {
-        return ("Всегда 18");
+    public void printAge() {
+        System.out.println("Возраст " + name + ": Всегда 18");
     }
 }
