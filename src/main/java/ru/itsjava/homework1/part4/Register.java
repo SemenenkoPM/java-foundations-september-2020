@@ -13,7 +13,6 @@ public class Register {
         Person[] persons = new Person[]{petro, oleg, alexey, sveta, katya, anna};
         for (int i = 0; i < persons.length; i++) {
             persons[i].printAge();
-//            System.out.println("Возраст " + persons[i].getName() + " " + persons[i].printAge());
         }
     }
 }
