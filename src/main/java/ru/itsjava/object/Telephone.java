@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@Data // get + set + eq
+@Data // get + set + equals + toString
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Telephone {
@@ -40,8 +40,8 @@ public class Telephone {
 //
 //    }
 //
-////    @Override
-////    public String toString() {
-////        return "{br"
+//    @Override
+//    public String toString() {
+//        return "{brand: " + brand + ", tel: " + phoneNumber + "}";
 //    }
 }
