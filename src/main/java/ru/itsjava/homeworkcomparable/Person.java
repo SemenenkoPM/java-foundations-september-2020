@@ -18,13 +18,24 @@ public class Person implements Comparable<Person>, Cloneable{
 
     @Override
     public int compareTo(Person o) {
-        if (surname.equalsIgnoreCase(o.surname))
-            if (name.equalsIgnoreCase(o.name)) {
+        if (surname.compareToIgnoreCase(o.surname) < 0) {
+            return -1;
+        } if (surname.compareToIgnoreCase(o.surname) > 0) {
+            return 1;
+        }
+            else if (name.compareToIgnoreCase(o.name) < 0) {
+            return -1;
+        }
+            if (name.compareToIgnoreCase(o.name) > 0) {
+                return 1;
+            }
+                else if (age > o.age) {
+                    return 1;
+                }
                 if (age == o.age) {
                     return 0;
                 }
-            }
-        return -1;
+                return -1;
     }
 
     @Override
