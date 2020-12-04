@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@Data // get + set + equals + toString
+@Data // get + set + equals + toString + HashCode
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Telephone {
