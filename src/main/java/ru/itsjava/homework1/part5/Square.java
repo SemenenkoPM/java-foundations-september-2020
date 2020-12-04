@@ -1,5 +1,8 @@
 package ru.itsjava.homework1.part5;
 
+import lombok.Data;
+
+@Data
 public class Square extends Figure{
     private double side;
 
@@ -16,5 +19,15 @@ public class Square extends Figure{
     @Override
     public double getPerimetr() {
         return 4 * side;
+    }
+
+    @Override
+    public void printArea() {
+        System.out.println("Печатаем площадь квадрата: " + getArea());
+    }
+
+    @Override
+    public void printPerimetr() {
+        System.out.println("Печатаем периметр квадрата: " + getPerimetr());
     }
 }

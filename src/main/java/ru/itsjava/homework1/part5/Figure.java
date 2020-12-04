@@ -1,14 +1,15 @@
 package ru.itsjava.homework1.part5;
 
 
-public class Figure {
+public abstract class Figure {
 
-    public double getArea(){
-        return -1;
+    abstract double getArea();
+    abstract double getPerimetr();
+    public void printArea(){
+        System.out.println("Печатаем площадь фигуры: " + getArea());
     }
-    public double getPerimetr(){
-        return -1;
+    public void printPerimetr(){
+        System.out.println("Печатаем периметр фигуры: " +getPerimetr());
     }
-
 
 }

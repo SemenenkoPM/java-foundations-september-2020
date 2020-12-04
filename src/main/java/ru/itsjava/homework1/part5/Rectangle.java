@@ -1,5 +1,8 @@
 package ru.itsjava.homework1.part5;
 
+import lombok.Data;
+
+@Data
 public class Rectangle extends Figure {
     private double side1;
     private double side2;
@@ -18,5 +21,15 @@ public class Rectangle extends Figure {
     @Override
     public double getPerimetr() {
         return 2 * (side1 + side2);
+    }
+
+    @Override
+    public void printArea() {
+        System.out.println("Печатаем площадь прямоугольника: " + getArea());
+    }
+
+    @Override
+    public void printPerimetr() {
+        System.out.println("Печатаем периметр прямоугольника: " + getPerimetr());
     }
 }

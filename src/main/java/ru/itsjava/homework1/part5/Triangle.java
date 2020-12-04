@@ -1,6 +1,8 @@
 package ru.itsjava.homework1.part5;
 
+import lombok.Data;
 
+@Data
 public class Triangle extends Figure{
 
     private double side1;
@@ -26,4 +28,13 @@ public class Triangle extends Figure{
         return Math.sqrt(p * (p - side1) * (p - side2) * (p - side3));
     }
 
+    @Override
+    public void printArea() {
+        System.out.println("Площадь треугольника: " + getArea());;
+    }
+
+    @Override
+    public void printPerimetr() {
+        System.out.println("Периметр треугольника: " + getPerimetr());
+    }
 }

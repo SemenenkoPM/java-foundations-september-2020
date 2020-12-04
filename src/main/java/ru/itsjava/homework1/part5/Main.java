@@ -1,5 +1,6 @@
 package ru.itsjava.homework1.part5;
 
+
 public class Main {
     public static void main(String[] args) {
 
@@ -22,10 +23,19 @@ public class Main {
         System.out.println("square1.toString() = " + square1.toString());
         System.out.println("rectangle1.toString() = " + rectangle1.toString());
 
+        triangle1.printArea();
+        triangle1.printPerimetr();
+        triangle2.printArea();
+        triangle2.printPerimetr();
+        square1.printArea();
+        square1.printPerimetr();
+        rectangle1.printArea();
+        rectangle1.printPerimetr();
+
+
     }
 
-    // почему для Методов getArea и getPerimetr мы не создаем переменных
-    // в фигуре почему возращаем именно -1 не валидное значение
+
      // почему в треугольнике при изменеии значений на большие получаю NaN
 
 }
