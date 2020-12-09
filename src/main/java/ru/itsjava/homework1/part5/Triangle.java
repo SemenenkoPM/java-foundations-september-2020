@@ -30,11 +30,36 @@ public class Triangle extends Figure{
 
     @Override
     public void printArea() {
-        System.out.println("Площадь треугольника: " + getArea());;
+        System.out.println("Площадь треугольника: " + getArea());
     }
 
     @Override
     public void printPerimetr() {
         System.out.println("Периметр треугольника: " + getPerimetr());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Triangle)) return false;
+
+        Triangle triangle = (Triangle) o;
+
+        if (Double.compare(triangle.getArea(), getArea()) != 0) return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(side1);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side2);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side3);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }
+

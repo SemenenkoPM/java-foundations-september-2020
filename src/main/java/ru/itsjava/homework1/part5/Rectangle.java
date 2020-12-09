@@ -32,4 +32,26 @@ public class Rectangle extends Figure {
     public void printPerimetr() {
         System.out.println("Печатаем периметр прямоугольника: " + getPerimetr());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rectangle)) return false;
+
+        Rectangle rectangle = (Rectangle) o;
+
+        if (Double.compare(rectangle.getPerimetr(), getPerimetr()) != 0) return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(side1);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side2);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

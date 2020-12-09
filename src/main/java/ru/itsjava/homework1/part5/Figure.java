@@ -5,6 +5,8 @@ public abstract class Figure {
 
     abstract double getArea();
     abstract double getPerimetr();
+    final static double PI = 3.14;
+
     public void printArea(){
         System.out.println("Печатаем площадь фигуры: " + getArea());
     }
