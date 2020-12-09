@@ -1,13 +1,11 @@
 package ru.itsjava.homework1.part5;
 
-import lombok.Data;
 
-@Data
 public class Triangle extends Figure{
 
-    private double side1;
-    private double side2;
-    private double side3;
+    private final double side1;
+    private final double side2;
+    private final double side3;
 
 
 
@@ -36,6 +34,15 @@ public class Triangle extends Figure{
     @Override
     public void printPerimetr() {
         System.out.println("Периметр треугольника: " + getPerimetr());
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "side1=" + side1 +
+                ", side2=" + side2 +
+                ", side3=" + side3 +
+                '}';
     }
 
     @Override

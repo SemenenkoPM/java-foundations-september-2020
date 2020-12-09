@@ -1,11 +1,9 @@
 package ru.itsjava.homework1.part5;
 
-import lombok.Data;
 
-@Data
 public class Circle extends Figure{
 
-    private double radius;
+    private final double radius;
 
     public Circle(double radius) {
         this.radius = radius;
@@ -29,5 +27,12 @@ public class Circle extends Figure{
     @Override
     public void printPerimetr() {
         System.out.println("Периметр круга равен: " + getPerimetr());
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
     }
 }

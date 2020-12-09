@@ -3,9 +3,10 @@ package ru.itsjava.homework1.part5;
 
 public abstract class Figure {
 
+    public final static double PI = 3.14;
+
     abstract double getArea();
     abstract double getPerimetr();
-    final static double PI = 3.14;
 
     public void printArea(){
         System.out.println("Печатаем площадь фигуры: " + getArea());

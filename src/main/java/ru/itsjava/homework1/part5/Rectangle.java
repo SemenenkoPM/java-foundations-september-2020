@@ -1,11 +1,9 @@
 package ru.itsjava.homework1.part5;
 
-import lombok.Data;
 
-@Data
 public class Rectangle extends Figure {
-    private double side1;
-    private double side2;
+    private final double side1;
+    private final double side2;
 
 
     public Rectangle (double side1, double side2){
@@ -31,6 +29,14 @@ public class Rectangle extends Figure {
     @Override
     public void printPerimetr() {
         System.out.println("Печатаем периметр прямоугольника: " + getPerimetr());
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "side1=" + side1 +
+                ", side2=" + side2 +
+                '}';
     }
 
     @Override

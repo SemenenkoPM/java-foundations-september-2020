@@ -1,10 +1,8 @@
 package ru.itsjava.homework1.part5;
 
-import lombok.Data;
 
-@Data
 public class Square extends Figure{
-    private double side;
+    private final double side;
 
 
     public Square(double side1){
@@ -29,5 +27,12 @@ public class Square extends Figure{
     @Override
     public void printPerimetr() {
         System.out.println("Печатаем периметр квадрата: " + getPerimetr());
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "side=" + side +
+                '}';
     }
 }
