@@ -74,13 +74,13 @@ public class HomeWorkArrayList {
         }
         System.out.println();
 
-        int numbersOfCoincidences = 0;
+        int coincidencesCount = 0;
         for (int i = 0; i < list3.size(); i++) {
             if (list3.get(i) == "second"){
-                numbersOfCoincidences++;
+                coincidencesCount++;
             }
         }
-        System.out.println("numbersOfCoincidences = " + numbersOfCoincidences);
+        System.out.println("coincidencesCount = " + coincidencesCount);
         System.out.println();
 
         // Пропустить несколько первых элементов
@@ -103,7 +103,17 @@ public class HomeWorkArrayList {
         list4.add("third");
         list4.add("last");
 
+        coincidencesCount = 0;
+        for (int i = 0; i < list4.size(); i++) {
+            if (list4.get(i).equalsIgnoreCase("last")) {
+                coincidencesCount++;
+            }
+            if (!list4.get(i).equalsIgnoreCase("last") || (list4.get(i).equalsIgnoreCase("last") & coincidencesCount > 2)) {
+                System.out.print(list4.get(i)+",");
+            }
+        }
 
+        System.out.println();
 
         // Возвращаем первый элемент длина строки которого делится на 3
 
