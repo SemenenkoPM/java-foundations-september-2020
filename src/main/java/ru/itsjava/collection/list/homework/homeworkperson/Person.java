@@ -20,7 +20,7 @@ public class Person {
 
 
     public boolean itsTimeToCall(){
-        if(isMale == true){
+        if(isMale){
             if(age >= 18 & age <= 27){
                 char nameStartsWith = 'Н';
                 if(name.charAt(0) == nameStartsWith){

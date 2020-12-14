@@ -24,11 +24,8 @@ public class Main {
 
         // Вернуть всех мужчин, кто проходит по условиям
 
-        System.out.println("person1.itsTimeToCall() = " + person1.itsTimeToCall());
-        System.out.println("person2.itsTimeToCall() = " + person2.itsTimeToCall());
-
         for (Person person : personList) {
-            if (person.itsTimeToCall() == true) {
+            if (person.itsTimeToCall()) {
                 System.out.println(person);
             }
         }
