@@ -94,7 +94,7 @@ public class HomeWorkArrayList {
         // Пропустить элементы которые удовлетворяют некоторому условию
         // {first, last, second, last, third, last}
         // вывести {first, second, third, last}
-//        Подскажи в какую сторону думать?
+
         List<String> list4 = new ArrayList<>();
         list4.add("first");
         list4.add("last");
@@ -108,7 +108,7 @@ public class HomeWorkArrayList {
             if (list4.get(i).equalsIgnoreCase("last")) {
                 coincidencesCount++;
             }
-            if (!list4.get(i).equalsIgnoreCase("last") || (list4.get(i).equalsIgnoreCase("last") & coincidencesCount > 2)) {
+            if (!list4.get(i).equalsIgnoreCase("last") || (list4.get(i).equalsIgnoreCase("last") && coincidencesCount > 2)) {
                 System.out.print(list4.get(i)+",");
             }
         }
