@@ -1,7 +1,5 @@
 package ru.itsjava.collection.list.myarraylist;
 
-import java.util.List;
-
 public class MyArrayList {
 
     private final static int DEFAULT_CAPACITY = 10;
@@ -12,23 +10,25 @@ public class MyArrayList {
       array = new Object[DEFAULT_CAPACITY];
       realSize = 0;
     }
-
+// готов
     public int size() {
         return realSize;
     }
-
+// Мой
     public boolean isEmpty() {
+        if (realSize == 0) return true;
         return false;
     }
-
+// Завязан на indexOf который пока не работает
     public boolean contains(Object o) {
-        return false;
+        if (indexOf(o) == -1) return false;
+        return true;
     }
 
     public Object[] toArray() {
         return new Object[0];
     }
-
+// Готов
     public boolean add(Object o) {
         if (realSize == array.length) {
 
@@ -42,7 +42,7 @@ public class MyArrayList {
         array[realSize++] = o;
         return true;
     }
-
+// Готов
     public boolean remove(Object o) {
         Object[] resultArray = new Object[array.length];
         int removeIndex = realSize;
@@ -61,9 +61,12 @@ public class MyArrayList {
         realSize--;
         return true;
     }
-
+// Мой
     public void clear() {
-
+        for (int i = 0; i < realSize; i++) {
+            array[i] = null;
+        }
+        realSize = 0;
     }
 
 //    private boolean isCorrectIndex(int index){
@@ -82,24 +85,67 @@ public class MyArrayList {
         return array[index];
     }
 
+    // Мой
+
     public Object set(int index, Object element) {
-        return null;
+        if ((index >= 0) && (index <= realSize)){
+            array[index] = element;
+            return true;
+        }
+        return false;
     }
+    // !!! Мой
+    // по array.lengt + 1
+    public boolean add(int index, Object element) {
+        Object[] resultArray = new Object[array.length + 1];
 
-    public void add(int index, Object element) {
+            for (int i = 0; i < index; i++) {
+                resultArray[i] = array[i];
+            }
 
+            for (int i = index; i < realSize; i++) {
+                resultArray[i + 1] = array[i];
+            }
+            array = resultArray;
+
+
+            array[index] = element;
+            realSize++;
+
+        return true;
     }
 
     public Object remove(int index) {
-        return null;
+        Object[] resultArray = new Object[array.length];
+        for (int i = 0; i < index; i++) {
+            resultArray[i] = array[i];
+        }
+        for (int i = index; i < realSize; i++) {
+            resultArray[i] = array[i + 1];
+        }
+        array = resultArray;
+        realSize--;
+        return true;
     }
-
+    // Мой
+    // Не работает?
     public int indexOf(Object o) {
-        return 0;
-    }
-
+            for (int i = 0; i < realSize; i++) {
+                if (o.equals(array[i])) {
+                    break;
+                } return i;
+            }
+            return -1;
+        }
+// Мой
+    // Не работает?
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i = realSize - 1; i >= 0; i--) {
+            if (o.equals(array[i])) {
+                break;
+            } return i;
+        }
+        return -1;
     }
 
     @Override
@@ -111,7 +157,6 @@ public class MyArrayList {
         result.append('}');
 
         return result.toString();
-
 
     }
 }
