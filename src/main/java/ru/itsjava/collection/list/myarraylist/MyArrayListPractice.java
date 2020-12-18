@@ -21,7 +21,7 @@ public class MyArrayListPractice {
         System.out.println(myArrayList.get(0));
  //       System.out.println(myArrayList.set(0, "strr"));
         System.out.println(myArrayList);
-        myArrayList.add(1,"addstr");
+        myArrayList.add(3,"addstr");
         System.out.println(myArrayList);
         myArrayList.remove(2);
         System.out.println(myArrayList);
@@ -31,5 +31,6 @@ public class MyArrayListPractice {
         System.out.println("myArrayList.lastIndexOf(\"addstr\") = " + myArrayList.lastIndexOf("addstr"));
 //        myArrayList.clear();
 //        System.out.println("myArrayList = " + myArrayList);
+        myArrayList.set(12, "ntn");
     }
 }

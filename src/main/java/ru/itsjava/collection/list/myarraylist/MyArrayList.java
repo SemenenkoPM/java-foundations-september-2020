@@ -7,19 +7,22 @@ public class MyArrayList {
     private int realSize;
 
     public MyArrayList() {
-      array = new Object[DEFAULT_CAPACITY];
-      realSize = 0;
+        array = new Object[DEFAULT_CAPACITY];
+        realSize = 0;
     }
-// готов
+
+    // готов
     public int size() {
         return realSize;
     }
-// Мой
+
+    // Мой
     public boolean isEmpty() {
         if (realSize == 0) return true;
         return false;
     }
-// Завязан на indexOf который пока не работает
+
+    // Мой
     public boolean contains(Object o) {
         if (indexOf(o) == -1) return false;
         return true;
@@ -28,7 +31,8 @@ public class MyArrayList {
     public Object[] toArray() {
         return new Object[0];
     }
-// Готов
+
+    // Готов
     public boolean add(Object o) {
         if (realSize == array.length) {
 
@@ -42,12 +46,13 @@ public class MyArrayList {
         array[realSize++] = o;
         return true;
     }
-// Готов
+
+    // Готов
     public boolean remove(Object o) {
         Object[] resultArray = new Object[array.length];
         int removeIndex = realSize;
         for (int i = 0; i < realSize; i++) {
-            if (array[i].equals(o)){
+            if (array[i].equals(o)) {
                 removeIndex = i;
                 break;
             }
@@ -61,7 +66,8 @@ public class MyArrayList {
         realSize--;
         return true;
     }
-// Мой
+
+    // Мой
     public void clear() {
         for (int i = 0; i < realSize; i++) {
             array[i] = null;
@@ -76,11 +82,12 @@ public class MyArrayList {
 //        return true;
 //    }
 
-    private void checkIndex(int index){
-        if ((index < 0) || (index > realSize)){
+    private void checkIndex(int index) {
+        if ((index < 0) || (index > realSize)) {
             throw new IndexOutOfBoundsException("Index: " + index + " out of bound " + realSize);
         }
     }
+
     public Object get(int index) {
         return array[index];
     }
@@ -88,32 +95,73 @@ public class MyArrayList {
     // Мой
 
     public Object set(int index, Object element) {
-        if ((index >= 0) && (index <= realSize)){
+        checkIndex(index);
+        if ((index >= 0) && (index <= realSize)) {
             array[index] = element;
             return true;
         }
         return false;
     }
-    // !!! Мой
-    // по array.lengt + 1
-    public boolean add(int index, Object element) {
-        Object[] resultArray = new Object[array.length + 1];
 
+    // !!! Мой
+    public boolean add(int index, Object element) {
+        checkIndex(index);
+        // не могу понять почему не работает так, насколько я вижу после if else говорит, что нет resultArray чтобы к нему обратиться?
+        /*
+        if (realSize == array.length) {
+            Object[] resultArray = new Object[3 * realSize / 2 + 1];
+        } else {
+            Object[] resultArray = new Object[3 * realSize / 2 + 1];
+        }
             for (int i = 0; i < index; i++) {
                 resultArray[i] = array[i];
             }
+
+            array[index] = element;
 
             for (int i = index; i < realSize; i++) {
                 resultArray[i + 1] = array[i];
             }
             array = resultArray;
 
-
-            array[index] = element;
             realSize++;
 
-        return true;
-    }
+         */
+
+        if (realSize == array.length) {
+            Object[] resultArray = new Object[3 * realSize / 2 + 1];
+
+            for (int i = 0; i < index; i++) {
+                resultArray[i] = array[i];
+            }
+
+            array[index] = element;
+
+            for (int i = index; i < realSize; i++) {
+                resultArray[i + 1] = array[i];
+            }
+            array = resultArray;
+
+            realSize++;
+        } else {
+            Object[] resultArray = new Object[array.length];
+
+            for (int i = 0; i < index; i++) {
+                resultArray[i] = array[i];
+            }
+
+            array[index] = element;
+
+            for (int i = index; i < realSize; i++) {
+                resultArray[i + 1] = array[i];
+            }
+            array = resultArray;
+
+            realSize++;
+        }
+            return true;
+        }
+
 
     public Object remove(int index) {
         Object[] resultArray = new Object[array.length];
@@ -127,23 +175,25 @@ public class MyArrayList {
         realSize--;
         return true;
     }
+
     // Мой
-    // Не работает?
+    // cmd+alt+L формат строк
     public int indexOf(Object o) {
-            for (int i = 0; i < realSize; i++) {
-                if (o.equals(array[i])) {
-                    break;
-                } return i;
+        for (int i = 0; i < realSize; i++) {
+            if (o.equals(array[i])) {
+                return i;
             }
-            return -1;
+
         }
-// Мой
-    // Не работает?
+        return -1;
+    }
+
+    // Мой
     public int lastIndexOf(Object o) {
         for (int i = realSize - 1; i >= 0; i--) {
             if (o.equals(array[i])) {
-                break;
-            } return i;
+                return i;
+            }
         }
         return -1;
     }
