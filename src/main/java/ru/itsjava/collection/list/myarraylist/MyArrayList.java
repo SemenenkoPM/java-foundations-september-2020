@@ -106,12 +106,11 @@ public class MyArrayList {
     // !!! Мой
     public boolean add(int index, Object element) {
         checkIndex(index);
-        // не могу понять почему не работает так, насколько я вижу после if else говорит, что нет resultArray чтобы к нему обратиться?
-        /*
+
+        Object[] resultArray = new Object[array.length];
         if (realSize == array.length) {
-            Object[] resultArray = new Object[3 * realSize / 2 + 1];
-        } else {
-            Object[] resultArray = new Object[3 * realSize / 2 + 1];
+            Object[] arrayToChangeLength = new Object[3 * realSize / 2 + 1];
+            resultArray = arrayToChangeLength;
         }
             for (int i = 0; i < index; i++) {
                 resultArray[i] = array[i];
@@ -126,39 +125,6 @@ public class MyArrayList {
 
             realSize++;
 
-         */
-
-        if (realSize == array.length) {
-            Object[] resultArray = new Object[3 * realSize / 2 + 1];
-
-            for (int i = 0; i < index; i++) {
-                resultArray[i] = array[i];
-            }
-
-            array[index] = element;
-
-            for (int i = index; i < realSize; i++) {
-                resultArray[i + 1] = array[i];
-            }
-            array = resultArray;
-
-            realSize++;
-        } else {
-            Object[] resultArray = new Object[array.length];
-
-            for (int i = 0; i < index; i++) {
-                resultArray[i] = array[i];
-            }
-
-            array[index] = element;
-
-            for (int i = index; i < realSize; i++) {
-                resultArray[i + 1] = array[i];
-            }
-            array = resultArray;
-
-            realSize++;
-        }
             return true;
         }
 
