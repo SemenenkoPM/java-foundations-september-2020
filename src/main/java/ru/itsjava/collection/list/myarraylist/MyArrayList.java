@@ -1,5 +1,7 @@
 package ru.itsjava.collection.list.myarraylist;
 
+import java.util.Arrays;
+
 public class MyArrayList {
 
     private final static int DEFAULT_CAPACITY = 10;
@@ -27,9 +29,14 @@ public class MyArrayList {
         if (indexOf(o) == -1) return false;
         return true;
     }
-
+// ?????
     public Object[] toArray() {
-        return new Object[0];
+        Object[] resultArray = new Object[realSize];
+        for (int i = 0; i < realSize; i++) {
+            resultArray[i] = array[i];
+        }
+//        System.out.println("Arrays.toString(resultArray) = " + Arrays.toString(resultArray));
+        return resultArray;
     }
 
     // Готов
@@ -96,7 +103,7 @@ public class MyArrayList {
 
     public Object set(int index, Object element) {
         checkIndex(index);
-        if ((index >= 0) && (index <= realSize)) {
+        if ((index >= 0) && (index < realSize)) {
             array[index] = element;
             return true;
         }
