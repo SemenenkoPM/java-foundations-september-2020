@@ -25,6 +25,7 @@ public class MyArrayList {
     }
 
     // Мой
+
     public boolean contains(Object o) {
         if (indexOf(o) == -1) return false;
         return true;
@@ -103,7 +104,7 @@ public class MyArrayList {
 
     public Object set(int index, Object element) {
         checkIndex(index);
-        if ((index >= 0) && (index < realSize)) {
+        if ((index >= 0) && (index <= realSize)) {
             array[index] = element;
             return true;
         }
@@ -123,7 +124,7 @@ public class MyArrayList {
                 resultArray[i] = array[i];
             }
 
-            array[index] = element;
+            resultArray[index] = element;
 
             for (int i = index; i < realSize; i++) {
                 resultArray[i + 1] = array[i];

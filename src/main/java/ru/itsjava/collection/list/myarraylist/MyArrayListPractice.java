@@ -1,5 +1,7 @@
 package ru.itsjava.collection.list.myarraylist;
 
+import java.util.Arrays;
+
 public class MyArrayListPractice {
 
     public static void main(String[] args) {
@@ -26,11 +28,14 @@ public class MyArrayListPractice {
         myArrayList.remove(2);
         System.out.println(myArrayList);
 
-        //??? и дебагер
         System.out.println("myArrayList.indexOf(\"addstr\") = " + myArrayList.indexOf("addstr"));
         System.out.println("myArrayList.lastIndexOf(\"addstr\") = " + myArrayList.lastIndexOf("addstr"));
 //        myArrayList.clear();
 //        System.out.println("myArrayList = " + myArrayList);
-        myArrayList.set(12, "ntn");
+        myArrayList.set(3, "ntn");
+        System.out.println();
+
+        System.out.println("myArrayList.toArray() = " + myArrayList.toArray());
+        System.out.println(Arrays.toString(myArrayList.toArray()));
     }
 }
