@@ -55,9 +55,38 @@ public class MyLinkedList {
     public void add(int index, Object element) {
 
     }
-
+    private void checkIndex(int index){
+        if ((index < 0) || (index > realSize)){
+            throw new IndexOutOfBoundsException("Index: " + index + " out of bound " + realSize);
+        }
+    }
     public Object remove(int index) {
-        return null;
+        checkIndex(index);
+        if(index == 0){
+            Node prevHead = head;
+            head = head.getNext();
+            prevHead.setNext(null);
+            realSize--;
+            return prevHead.getValue();
+        }
+        if (head.getNext() == null){
+
+        }
+
+        Node prevNode = head;
+        Node curNode = head.getNext();
+
+        int curIndex = 1;
+        while (curIndex != index){
+            prevNode = prevNode.getNext();
+            curNode = curNode.getNext();
+            curIndex++;
+        }
+        prevNode.setNext(curNode.getNext());
+        curNode.setNext(null);
+        realSize--;
+
+        return curNode.getValue();
     }
 
     public int indexOf(Object o) {
@@ -66,5 +95,16 @@ public class MyLinkedList {
 
     public int lastIndexOf(Object o) {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder("LinkedList{ ");
+        Node curNode = head;
+        while (curNode != null){
+            stringBuilder.append(curNode.getValue()).append(" ");
+            curNode = curNode.getNext();
+        }
+        return stringBuilder.append('}').toString();
     }
 }
