@@ -104,7 +104,7 @@ public class MyArrayList {
 
     public Object set(int index, Object element) {
         checkIndex(index);
-        if ((index >= 0) && (index <= realSize)) {
+        if ((index >= 0) && (index < array.length - 1)) {
             array[index] = element;
             return true;
         }

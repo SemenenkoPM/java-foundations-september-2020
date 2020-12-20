@@ -126,8 +126,9 @@ public class MyArrayListTest {
 
     public void shouldHaveCorrectSetElement(){
         MyArrayList list = new MyArrayList();
-        list.set(0, DEFAULT_ELEM);
-        Assertions.assertEquals(DEFAULT_ELEM, list.get(0));
+        list.add(0, DEFAULT_ELEM);
+        list.set(0, DEFAULT_ELEM1);
+        Assertions.assertEquals(DEFAULT_ELEM1, list.get(0));
     }
     // !!! Мой
     @DisplayName(" корректно добавляет элемент по индексу")
