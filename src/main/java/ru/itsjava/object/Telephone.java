@@ -40,8 +40,8 @@ public class Telephone {
 //
 //    }
 //
-//    @Override
-//    public String toString() {
-//        return "{brand: " + brand + ", tel: " + phoneNumber + "}";
-//    }
+    @Override
+    public String toString() {
+        return "{brand: " + brand + ", tel: " + phoneNumber + "}";
+    }
 }
