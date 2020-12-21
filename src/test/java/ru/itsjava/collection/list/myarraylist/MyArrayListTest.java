@@ -63,7 +63,7 @@ public class MyArrayListTest {
         listAfterAdd.add(DEFAULT_ELEM);
         listAfterAdd.add(DEFAULT_ELEM1);
         listAfterAdd.clear();
-        Assertions.assertEquals(listAfterAdd, listAfterAdd);
+        Assertions.assertEquals(listAfterAdd.isEmpty(), listAfterAdd.isEmpty());
     }
 
     @DisplayName(" корректно возвращать элемент по индексу")

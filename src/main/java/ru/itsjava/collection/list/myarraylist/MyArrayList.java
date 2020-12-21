@@ -104,17 +104,13 @@ public class MyArrayList {
 
     public Object set(int index, Object element) {
         checkIndex(index);
-        if ((index >= 0) && (index < array.length - 1)) {
             array[index] = element;
             return true;
-        }
-        return false;
     }
 
     // !!! Мой
     public boolean add(int index, Object element) {
         checkIndex(index);
-
         Object[] resultArray = new Object[array.length];
         if (realSize == array.length) {
             Object[] arrayToChangeLength = new Object[3 * realSize / 2 + 1];
