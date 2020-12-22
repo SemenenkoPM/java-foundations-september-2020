@@ -44,10 +44,10 @@ public class  TelephoneTest {
         Assertions.assertEquals(123_000, telephone.getPrice());
     }
 
-    @DisplayName(" корректно возвращать get")
+    @DisplayName(" корректно возвращается состояние обьекта")
     @Test
 
-    public void shouldHaveCorrectReturnGet(){
+    public void shouldHaveCorrectReturnObjectState(){
         Telephone telephone = new Telephone(PHONE_NUMBER, DEFAULT_BREND, DEFAULT_PRICE);
         telephone.setPrice(123_000);
 
