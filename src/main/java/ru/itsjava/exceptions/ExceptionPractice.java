@@ -3,7 +3,7 @@ package ru.itsjava.exceptions;
 public class ExceptionPractice {
 
     public static void main(String[] args) {
-////        throw new NullPointerException();
+//        throw new NullPointerException();
 //
 //        try {
 //            Object obj = null;

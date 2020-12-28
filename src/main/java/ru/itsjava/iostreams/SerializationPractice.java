@@ -11,9 +11,9 @@ public class SerializationPractice {
         objectOutputStream.writeObject(vladimir);
 
         ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("src/main/resources/vladimir.out"));
-        Object objVladimir = objectInputStream.readObject();
+//        Object objVladimir = objectInputStream.readObject();
 
-        Person vladimirAfterSer = (Person) objVladimir;
+//        Person vladimirAfterSer = (Person) objVladimir;
 
     }
 }

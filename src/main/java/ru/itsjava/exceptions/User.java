@@ -1,7 +1,7 @@
 package ru.itsjava.exceptions;
 
 
-public class User {
+public class  User {
 
     private String name;
 
