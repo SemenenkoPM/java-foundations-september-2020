@@ -1,5 +1,7 @@
 package ru.itsjava.enums;
 
+import ru.itsjava.enums.enumshomework.DaysOfTheWeek;
+
 public class EnumsPractice {
     public static void main(String[] args) {
         System.out.println("Season.WINTER = " + Season.WINTER);
@@ -9,5 +11,7 @@ public class EnumsPractice {
         }
 
         System.out.println(WinterMonth.DECEMBER);
+
+        System.out.println(DaysOfTheWeek.MONDAY);
     }
 }
