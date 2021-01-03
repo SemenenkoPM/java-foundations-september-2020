@@ -1,32 +1,47 @@
 package ru.itsjava.collection.list.mylinkedlist;
 
 
+import java.util.Objects;
+
 public class MyLinkedList {
 
     private Node head;
     private int realSize = 0;
 
 
-
+    // в классе
     public int size() {
         return realSize;
     }
 
+    // Моя реализация
     public boolean isEmpty() {
-        return false;
+        if (head != null) {
+            return false;
+        }
+        return true;
     }
 
     public boolean contains(Object o) {
-        return false;
+        Node curNode = head;
+        while (curNode.getNext() != null) {
+            curNode = curNode.getNext();
+            if (curNode.getValue().equals(o)) {
+                break;
+            } return true;
+        } return false;
+        
+
     }
 
+    // в классе
     public boolean add(Object o) {
         Node node = new Node(o, null);
-        if (head == null){
+        if (head == null) {
             head = node;
         } else {
-            Node curNode = head;
-            while (curNode.getNext() != null){
+            Node curNode = head; // curNode текущий элемент
+            while (curNode.getNext() != null) {
                 curNode = curNode.getNext();
             }
             curNode.setNext(node);
@@ -40,8 +55,9 @@ public class MyLinkedList {
         return false;
     }
 
+    // Моя реализация
     public void clear() {
-
+        head = null;
     }
 
     public Object get(int index) {
@@ -52,56 +68,104 @@ public class MyLinkedList {
         return null;
     }
 
+    // Моя реализация
     public void add(int index, Object element) {
+        checkIndex(index);
+        Node node = new Node(element, null);
 
+        if (head == null && index == 0) {
+            head = node;
+            realSize++;
+        } else if (head != null && index == 0) {
+            Node nextNode = head;
+            head = node; // Почему нужно обязательно присвоить headу node???
+            node.setNext(nextNode);
+            realSize++;
+        } else {
+
+            Node prevNode = head;
+            Node curNode = head.getNext();
+            int curIndex = 1;
+            while (curIndex != index) {
+                prevNode = prevNode.getNext();
+                curNode = curNode.getNext();
+                curIndex++;
+            }
+            node.setNext(curNode);
+            prevNode.setNext(node);
+
+            realSize++;
+        }
     }
-    private void checkIndex(int index){
-        if ((index < 0) || (index > realSize)){
+
+    // в классе
+    private void checkIndex(int index) {
+        if ((index < 0) || (index > realSize)) {
             throw new IndexOutOfBoundsException("Index: " + index + " out of bound " + realSize);
         }
     }
+
+    // в классе
     public Object remove(int index) {
         checkIndex(index);
-        if(index == 0){
-            Node prevHead = head;
+        if (index == 0) { // ситуация если нужно удалить первый элемент, или массив состоит из одного элемента
+            Node prevHead = head; // записываем элемент который мы удаляем в prevHead
             head = head.getNext();
-            prevHead.setNext(null);
+            prevHead.setNext(null); // ссылку удаляемого элемента заnullяем
             realSize--;
-            return prevHead.getValue();
+            return prevHead.getValue(); // вернул удаляемый обьект
         }
-        if (head.getNext() == null){
-
-        }
-
+// если индекс не 0 и хотим удалить где то из середины, понимаем, что элементов минимум 2
+        // curNode нод который нужно удалить
+        // prevNode нод предыдущий перед тем который нужно удалить
         Node prevNode = head;
         Node curNode = head.getNext();
 
-        int curIndex = 1;
-        while (curIndex != index){
-            prevNode = prevNode.getNext();
+        int curIndex = 1; // создаем текущий индекс, 1 т.к. curNode уже указывает на элемент с индексом 1
+        while (curIndex != index) { // идем до нужного индекса
+            prevNode = prevNode.getNext(); // перемещаем оба нода
             curNode = curNode.getNext();
-            curIndex++;
+            curIndex++; // индекс увеличиваем
         }
-        prevNode.setNext(curNode.getNext());
-        curNode.setNext(null);
+        prevNode.setNext(curNode.getNext()); // переназначаем ссылку, пропускаем удалемый элемент
+        curNode.setNext(null); // зануляем ссылку удаляемого элемента
         realSize--;
 
         return curNode.getValue();
     }
 
+    // Моя реализация
     public int indexOf(Object o) {
-        return 0;
+        int curIndex = 0;
+        Node curNode = head;
+        while (!curNode.getValue().equals(o)) {
+            curNode = curNode.getNext();
+            curIndex++;
+        }
+        return curIndex;
     }
 
+    // Моя реализация
     public int lastIndexOf(Object o) {
-        return 0;
+        int curIndex = 0;
+        Node curNode = head;
+        int desiredIndex = 0;
+        while (curNode.getNext() != null) {
+            curNode = curNode.getNext();
+            curIndex++;
+            if (curNode.getValue().equals(o)) {
+                desiredIndex = curIndex;
+            }
+        }
+        return desiredIndex;
     }
 
+    // в классе
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("LinkedList{ ");
         Node curNode = head;
-        while (curNode != null){
+        while (curNode != null) {
             stringBuilder.append(curNode.getValue()).append(" ");
             curNode = curNode.getNext();
         }
