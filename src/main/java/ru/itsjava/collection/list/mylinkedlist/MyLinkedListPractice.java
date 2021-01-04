@@ -6,13 +6,13 @@ public class MyLinkedListPractice {
        linkedList.add("first");
 //
 //        System.out.println(linkedList);
-//        linkedList.add("second");
+        linkedList.add("second");
 //        linkedList.add("third");
 //        System.out.println("linkedList.size() = " + linkedList.size());
 //        System.out.println("linkedList.remove(1) = " + linkedList.remove(1));
  //       System.out.println("linkedList = " + linkedList);
 
-//        System.out.println("linkedList.remove(1) = " + linkedList.remove(1));
+ //     System.out.println("linkedList.remove(1) = " + linkedList.remove(3));
 //        System.out.println("linkedList.remove(1) = " + linkedList.remove(1));
 
 //        System.out.println("linkedList.remove(1) = " + linkedList.remove(0));
@@ -27,8 +27,14 @@ public class MyLinkedListPractice {
         System.out.println("linkedList = " + linkedList);
 //        linkedList.clear();
         System.out.println("linkedList = " + linkedList);
-        System.out.println("linkedList.contains(\"fgr\") = " + linkedList.contains("fgr"));
-        System.out.println("linkedList.contains(\"fgr\") = " + linkedList.contains("first"));
+//       System.out.println("linkedList.contains(\"fgr\") = " + linkedList.contains("seco"));
+//        System.out.println("linkedList.contains(\"fgr\") = " + linkedList.contains("first"));
+
+//        System.out.println("linkedList.remove(\"secon\") = " + linkedList.remove("fgr"));
+//        System.out.println("linkedList = " + linkedList);
+//        System.out.println("linkedList.get(0) = " + linkedList.get(2));
+        linkedList.set(3, "er");
+        System.out.println("linkedList = " + linkedList);
     }
 
 }

@@ -10,6 +10,46 @@ public class MyLinkedListTest {
     public static final String DEFAULT_ELEM = "Elem 1";
     public static final String DEFAULT_ELEM1 = "Elem 2";
 
+    @DisplayName(" корректно перезаписывает элемент")
+    @Test
+
+    public void shouldHaveCorrectSetElement(){
+        MyLinkedList list = new MyLinkedList();
+        list.add(0, DEFAULT_ELEM);
+        list.set(0, DEFAULT_ELEM1);
+        Assertions.assertEquals(DEFAULT_ELEM1, list.get(0));
+    }
+
+    @DisplayName(" корректно возвращать элемент по индексу")
+    @Test
+    public void shouldHaveCorrectgetElementByIndex() {
+        MyLinkedList list = new MyLinkedList();
+        list.add(DEFAULT_ELEM);
+
+        Assertions.assertEquals(DEFAULT_ELEM, list.get(0));
+    }
+
+    @DisplayName(" корректно удалять по элементу")
+    @Test
+    public void shouldHaveCorrectRemoveByElement(){
+        MyLinkedList list = new MyLinkedList();
+        list.add(DEFAULT_ELEM);
+        int sizeBeforeRemove = list.size();
+        list.remove(DEFAULT_ELEM);
+
+        Assertions.assertEquals(sizeBeforeRemove - 1, list.size());
+    }
+
+    @DisplayName(" корректно возвращать 'true' если коллекция содержит о")
+    @Test
+    public void shouldHaveCorrectReturnTrueContains() {
+        MyLinkedList list = new MyLinkedList();
+        list.add(DEFAULT_ELEM);
+
+        Assertions.assertEquals(false, list.contains("321"));
+        Assertions.assertEquals(true, list.contains("Elem 1"));
+    }
+
     @DisplayName(" возвращать 'true' если коллекция пуста")
     @Test
     public void shouldHaveCorrectReturnTrueisEmpty(){
@@ -20,7 +60,6 @@ public class MyLinkedListTest {
         Assertions.assertTrue(resultBeforAdd);
         Assertions.assertFalse(resultAfterAdd);
     }
-
 
     @DisplayName(" корректно удалять все элементы")
     @Test
@@ -33,20 +72,18 @@ public class MyLinkedListTest {
         Assertions.assertEquals(listBeforeAdd.isEmpty(), listAfterAdd.isEmpty());
     }
 
-// гетера нет
-//    @DisplayName(" корректно добавляет элемент по индексу")
-//    @Test
-//    public void shouldHaveCorrectAddByIndex(){
-//        MyLinkedList list = new MyLinkedList();
-//        list.add(DEFAULT_ELEM);
-//        list.add(DEFAULT_ELEM);
-//        int sizeBeforeAdd = list.size();
-//        list.add(1, "str1");
-//        Assertions.assertEquals("str1", list.get(1));
-//        Assertions.assertEquals(sizeBeforeAdd + 1, list.size());
-//        Assertions.assertEquals(DEFAULT_ELEM, list.get(2));
-//
-//    }
+    @DisplayName(" корректно добавляет элемент по индексу")
+    @Test
+    public void shouldHaveCorrectAddByIndex(){
+        MyLinkedList list = new MyLinkedList();
+        list.add(DEFAULT_ELEM);
+        list.add(DEFAULT_ELEM);
+        int sizeBeforeAdd = list.size();
+        list.add(1, "str1");
+        Assertions.assertEquals("str1", list.get(1));
+        Assertions.assertEquals(sizeBeforeAdd + 1, list.size());
+        Assertions.assertEquals(DEFAULT_ELEM, list.get(2));
+    }
 
     @DisplayName(" корректно возвращает индекс последнего появления элемента в списке")
     @Test
@@ -69,17 +106,6 @@ public class MyLinkedListTest {
 
         Assertions.assertEquals(1, list.indexOf(DEFAULT_ELEM1));
     }
-
-//    @DisplayName(" корректно удалять по элементу")
-//    @Test
-//    public void shouldHaveCorrectRemoveByElement() {
-//        MyLinkedList list = new MyLinkedList();
-//        list.add(DEFAULT_ELEM);
-//        int sizeBeforeRemove = list.size();
-//        list.remove(DEFAULT_ELEM);
-//
-//        Assertions.assertEquals(sizeBeforeRemove - 1, list.size());
-//    }
 
     @DisplayName(" корректно добавлять по элементу")
     @Test

@@ -1,13 +1,9 @@
 package ru.itsjava.collection.list.mylinkedlist;
 
-
-import java.util.Objects;
-
 public class MyLinkedList {
 
     private Node head;
     private int realSize = 0;
-
 
     // в классе
     public int size() {
@@ -22,16 +18,27 @@ public class MyLinkedList {
         return true;
     }
 
+    // Моя реализация. Вопрос, если бежать с curNode.getValue, то последний элемент не попадает, если как сейчас, то если обьект выбранный несодержиться, то ошибка возникнет, как быть?
     public boolean contains(Object o) {
-        Node curNode = head;
-        while (curNode.getNext() != null) {
-            curNode = curNode.getNext();
-            if (curNode.getValue().equals(o)) {
-                break;
-            } return true;
-        } return false;
-        
+        Node prevNode = head;
+        Node curNode = head.getNext();
+        boolean isContains = false;
+        if (prevNode.getValue().equals(o)) {
+            isContains = true;
+        }
+try {
+    while (prevNode.getNext() != null) {
+        if (curNode.getValue().equals(o)) {
+            isContains = true;
+            break;
+        }
+        curNode = curNode.getNext();
 
+    }
+} catch (NullPointerException e) {
+    e.printStackTrace();
+}
+        return isContains;
     }
 
     // в классе
@@ -51,8 +58,28 @@ public class MyLinkedList {
         return true;
     }
 
+    // Моя реализация
     public boolean remove(Object o) {
-        return false;
+        Node prevNode = head;
+        Node curNode = head.getNext();
+
+        if (prevNode.getValue().equals(o)) {
+            head = curNode;
+            prevNode.setNext(null);
+            realSize--;
+        } else {
+            while (prevNode.getNext() != null) { // идем до конца
+                if (curNode.getValue().equals(o)) {
+                    prevNode.setNext(curNode.getNext()); // переназначаем ссылку, пропускаем удалемый элемент
+                    curNode.setNext(null); // зануляем ссылку удаляемого элемента
+                    realSize--;
+                    break;
+                }
+                prevNode = prevNode.getNext(); // перемещаем оба нода
+                curNode = curNode.getNext();
+            } return false;
+        }
+        return true;
     }
 
     // Моя реализация
@@ -60,12 +87,31 @@ public class MyLinkedList {
         head = null;
     }
 
+    // Моя реализация
     public Object get(int index) {
-        return null;
+       checkIndex(index);
+        int curIndex = 0;
+        Node curNode = head;
+        while (curIndex != index){
+            curNode = curNode.getNext();
+            curIndex++;
+        }
+        return curNode.getValue();
     }
 
+    // Моя реализация
     public Object set(int index, Object element) {
-        return null;
+        checkIndex(index);
+        int curIndex = 0;
+        Node curNode = head;
+
+        while (curIndex != index){
+            curNode = curNode.getNext();
+            curIndex++;
+        }
+        curNode.setValue(element);
+
+        return curNode.getValue();
     }
 
     // Моя реализация
