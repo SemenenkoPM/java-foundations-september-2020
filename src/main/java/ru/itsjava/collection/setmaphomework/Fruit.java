@@ -1,4 +1,4 @@
-package ru.itsjava.collection.set.sethomework;
+package ru.itsjava.collection.setmaphomework;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;
@@ -7,8 +7,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Fruit {
 
-    private final String name;
-    private double weihgt;
+    public final String name;
+    public double weihgt;
 
 
 
