@@ -44,18 +44,11 @@ public class MemoryProgram {
             }
             arrayList.add(inputText);
 
-
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileName));
             for (String line: arrayList) {
              fileWriter.write(line + "\n");
         }
            fileWriter.close();
-
         }
-
-
-
     }
-
-
 }

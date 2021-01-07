@@ -46,13 +46,5 @@ public class Main {
             fileWriter.write(line + "\n");
         }
         fileWriter.close();
-
-
-
-
-
-
-
-
     }
 }
