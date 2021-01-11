@@ -4,6 +4,7 @@ package ru.itsjava.collection.setmaphomework;
 
 import ru.itsjava.collection.map.Man;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 
@@ -40,9 +41,8 @@ public class Main {
             System.out.println(iterator.next());
 
         }
-        Map<String, Object> fruitMap = new HashMap<>();
+        Map<String, Fruit> fruitMap = new HashMap<>();
 
-        // Как я могу обратиться к обьектам другого класса?
 
         fruitMap.put("Андрей", apple);
         fruitMap.put("Виктор", orange);
@@ -60,81 +60,106 @@ public class Main {
         System.out.println("fruitMap.containsKey(\"Андрей\") = " + fruitMap.containsKey("Андрей"));
         System.out.println("fruitMap.containsValue(\"Ананас\") = " + fruitMap.containsValue(pineapple));
 
-        Map<String, Object> newFruitMap = new HashMap<>();
+        Map<String, Fruit> fruitMap2 = new HashMap<>();
 
-        newFruitMap.putAll(fruitMap);
-        System.out.println("newFruitMap = " + newFruitMap);
-        System.out.println("newFruitMap.keySet() = " + newFruitMap.keySet());
-        System.out.println("newFruitMap.values() = " + newFruitMap.values());
-        System.out.println("newFruitMap.entrySet() = " + newFruitMap.entrySet());
+        fruitMap2.putAll(fruitMap);
+        System.out.println("newFruitMap = " + fruitMap2);
+        System.out.println("newFruitMap.keySet() = " + fruitMap2.keySet());
+        System.out.println("newFruitMap.values() = " + fruitMap2.values());
+        System.out.println("newFruitMap.entrySet() = " + fruitMap2.entrySet());
 
-        newFruitMap.put("Анатолий", melon);
-        newFruitMap.put("Егор", watermelon);
-        newFruitMap.put("Антон", lemon);
-        System.out.println("newFruitMap = " + newFruitMap);
+        fruitMap2.put("Анатолий", melon);
+        fruitMap2.put("Егор", watermelon);
+        fruitMap2.put("Антон", lemon);
+        System.out.println("newFruitMap = " + fruitMap2);
 
-        // вернуть количество ключей длина которых больше 5 (покупателей, чье имя больше 5)
+
+        System.out.println("вернуть количество ключей длина которых больше 5 (покупателей, чье имя больше 5)");
 
         int numberOfKeysWhoseLengthIsMoreThan5 = 0;
-        for (String key: newFruitMap.keySet()){
+        for (String key: fruitMap2.keySet()){
             if ( key.length() > 5 ){
                 numberOfKeysWhoseLengthIsMoreThan5++;
             }
         }
         System.out.println("Покупателей, чье имя больше 5: " + numberOfKeysWhoseLengthIsMoreThan5);
 
-        // Вернуть количество элементов, которые равны "***" (фруктов, которые равны дыне)
+        System.out.println("Вернуть количество элементов, которые равны '***' (фруктов, которые равны дыне)");
         int amountOfFruitThatIsEqualToAMelon = 0;
-        for (Object value: newFruitMap.values()){
+        for (Object value: fruitMap2.values()){
             if ( value.equals(melon) ){
                 amountOfFruitThatIsEqualToAMelon++;
             }
         }
         System.out.println("Количество Дынь в значениях: " + amountOfFruitThatIsEqualToAMelon);
 
-        // Пропустить 2 элемента, значения которых Арбуз, все остальные вывести.
+        System.out.println("\"Пропустить 2 элемента, значения которых Арбуз, все остальные вывести\" = " + "Пропустить 2 элемента, значения которых Арбуз, все остальные вывести");
 
         int currentNumberOfWatermelonsWeSkip = 0;
-        for (Object value: newFruitMap.values()){
-            if ( !value.equals(watermelon)) {
+//        for (Object value: newFruitMap.values()){
+//            if (!value.equals(watermelon)) {
+//                System.out.println(value);
+//            } if (value.equals(watermelon)){
+//                    currentNumberOfWatermelonsWeSkip++;
+//                } if (value.equals(watermelon) && currentNumberOfWatermelonsWeSkip > 2) {
+//                    System.out.println(value);
+//                }
+//            }
+        // Переписал так
+        for (Object value: fruitMap2.values()){
+            if (value.equals(watermelon)){
+                currentNumberOfWatermelonsWeSkip++;
+            } if (!value.equals(watermelon) || (value.equals(watermelon) && currentNumberOfWatermelonsWeSkip > 2)) {
                 System.out.println(value);
-            } if (value.equals(watermelon)){
-                    currentNumberOfWatermelonsWeSkip++;
-                } if (value.equals(watermelon) && currentNumberOfWatermelonsWeSkip > 2) {
-                    System.out.println(value);
-                }
-            }
-
-        // Вывести все кроме 2 элементов, ключи которых начинаются на А
-
-        int currentNumberOfElementsWeSkip = 0;
-        char variableToCompare = 'А';
-        for (String key: newFruitMap.keySet()){
-            if (key.charAt(0) != variableToCompare) {
-                System.out.println(key);
-            } if (key.charAt(0) == variableToCompare){
-                currentNumberOfElementsWeSkip++;
-            } if ((key.charAt(0) == variableToCompare) && currentNumberOfElementsWeSkip > 2) {
-                System.out.println(key);
             }
         }
 
-        // Возвращаем элемент значение которого арбуз или Арбуз или АРбУз.
+        System.out.println("Вывести все кроме 2 элементов, ключи которых начинаются на А");
 
-        for (Object value: newFruitMap.values()) {
-            if (value.equals(watermelon)) {
+        int currentNumberOfElementsWeSkip = 0;
+        char variableToCompare = 'А';
+        for (String key: fruitMap2.keySet()){
+            if (key.charAt(0) == variableToCompare){
+                currentNumberOfElementsWeSkip++;
+            } if ((key.charAt(0) != variableToCompare) || ((key.charAt(0) == variableToCompare) && currentNumberOfElementsWeSkip > 2)) {
+                System.out.println(key);
+            }
+
+        }
+
+        System.out.println("Возвращаем элемент значение которого арбуз или Арбуз или АРбУз.");
+
+        for (Fruit value: fruitMap2.values()) {
+            if (value.getName().equalsIgnoreCase("АрбуЗ")){
                 System.out.println(value);
                 break;
             }
         }
 
-        // Возвращаем все элементы в другую карту, которые являются фруктами
-        // в моем варианте все являются фруктами? Как сделать?
 
-        // Найти средний вес всех фруктов.
-        // как достучаться до свойств фруктов, до веса???
+        System.out.println("Возвращаем все элементы в другую карту, которые являются Дынями");
+
+        Map<String, Fruit> copyFruitMap = new HashMap<>();
+        for (Map.Entry<String, Fruit> pair: fruitMap2.entrySet()){
+            if (pair.getValue().getName().equalsIgnoreCase("Дыня")){
+                copyFruitMap.put(pair.getKey(), pair.getValue());
+            }
+        }
+        System.out.println("copyFruitMap = " + copyFruitMap);
 
 
+        System.out.println("Найти средний вес всех фруктов.");
+
+
+        double totalWeightFruits = 0;
+        int countOfFruits = 0;
+        for (Fruit value: fruitMap2.values()){
+            totalWeightFruits = totalWeightFruits + value.getWeihgt();
+            countOfFruits++;
+        }
+        double averageWeight = totalWeightFruits / countOfFruits;
+        DecimalFormat dF = new DecimalFormat( "#.##" );
+        System.out.println("Средний вес всех фруктов = " + dF.format(averageWeight) + " кг");
 
 
 

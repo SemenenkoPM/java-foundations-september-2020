@@ -1,9 +1,9 @@
 package ru.itsjava.collection.setmaphomework;
 
 import lombok.AllArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 @AllArgsConstructor
 public class Fruit {
 
