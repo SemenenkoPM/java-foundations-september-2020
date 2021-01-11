@@ -106,10 +106,10 @@ public class Main {
 //                }
 //            }
         // Переписал так
-        for (Object value: fruitMap2.values()){
-            if (value.equals(watermelon)){
+        for (Fruit value: fruitMap2.values()){
+            if (value.getName().equalsIgnoreCase("Арбуз")){
                 currentNumberOfWatermelonsWeSkip++;
-            } if (!value.equals(watermelon) || (value.equals(watermelon) && currentNumberOfWatermelonsWeSkip > 2)) {
+            } if (!value.getName().equalsIgnoreCase("Арбуз") || (value.getName().equalsIgnoreCase("Арбуз") && currentNumberOfWatermelonsWeSkip > 2)) {
                 System.out.println(value);
             }
         }
@@ -136,7 +136,6 @@ public class Main {
             }
         }
 
-
         System.out.println("Возвращаем все элементы в другую карту, которые являются Дынями");
 
         Map<String, Fruit> copyFruitMap = new HashMap<>();
@@ -147,21 +146,14 @@ public class Main {
         }
         System.out.println("copyFruitMap = " + copyFruitMap);
 
-
         System.out.println("Найти средний вес всех фруктов.");
-
-
         double totalWeightFruits = 0;
-        int countOfFruits = 0;
         for (Fruit value: fruitMap2.values()){
             totalWeightFruits = totalWeightFruits + value.getWeihgt();
-            countOfFruits++;
         }
-        double averageWeight = totalWeightFruits / countOfFruits;
+        double averageWeight = totalWeightFruits / fruitMap2.size();
         DecimalFormat dF = new DecimalFormat( "#.##" );
         System.out.println("Средний вес всех фруктов = " + dF.format(averageWeight) + " кг");
-
-
 
     }
 }
