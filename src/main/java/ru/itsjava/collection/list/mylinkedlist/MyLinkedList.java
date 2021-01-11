@@ -21,23 +21,21 @@ public class MyLinkedList {
     // Моя реализация. Вопрос, если бежать с curNode.getValue, то последний элемент не попадает, если как сейчас, то если обьект выбранный несодержиться, то ошибка возникнет, как быть?
     public boolean contains(Object o) {
         Node prevNode = head;
-        Node curNode = head.getNext();
-        boolean isContains = false;
         if (prevNode.getValue().equals(o)) {
-            isContains = true;
+            return true;
         }
-try {
-    while (prevNode.getNext() != null) {
-        if (curNode.getValue().equals(o)) {
-            isContains = true;
-            break;
-        }
-        curNode = curNode.getNext();
+        if (prevNode.getNext() == null) return false;
 
-    }
-} catch (NullPointerException e) {
-    e.printStackTrace();
-}
+        boolean isContains = false;
+        Node curNode = head.getNext();
+        while (curNode != null) {
+            if (curNode.getValue().equals(o)) {
+                isContains = true;
+                break;
+            }
+            curNode = curNode.getNext();
+        }
+
         return isContains;
     }
 
@@ -77,7 +75,8 @@ try {
                 }
                 prevNode = prevNode.getNext(); // перемещаем оба нода
                 curNode = curNode.getNext();
-            } return false;
+            }
+            return false;
         }
         return true;
     }
@@ -89,10 +88,10 @@ try {
 
     // Моя реализация
     public Object get(int index) {
-       checkIndex(index);
+        checkIndex(index);
         int curIndex = 0;
         Node curNode = head;
-        while (curIndex != index){
+        while (curIndex != index) {
             curNode = curNode.getNext();
             curIndex++;
         }
@@ -105,7 +104,7 @@ try {
         int curIndex = 0;
         Node curNode = head;
 
-        while (curIndex != index){
+        while (curIndex != index) {
             curNode = curNode.getNext();
             curIndex++;
         }
