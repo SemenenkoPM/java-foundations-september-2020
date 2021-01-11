@@ -1,4 +1,4 @@
-package ru.itsjava.threads.treadshomework;
+package ru.itsjava.threads.threadshomework;
 
 public class Main {
 
