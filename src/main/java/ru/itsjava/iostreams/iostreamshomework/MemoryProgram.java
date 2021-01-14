@@ -36,19 +36,19 @@ public class MemoryProgram {
         while (true) {
             System.out.println("Введите текст, если надоело вводить текст, введите 'enough'");
             String inputText = scanner.nextLine();
-            if (inputText.equalsIgnoreCase("enough")){
+            if (inputText.equalsIgnoreCase("enough")) {
                 break;
             }
             if (arrayList.size() == 10) {
                 arrayList.remove(0);
             }
             arrayList.add(inputText);
+        }
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileName))) {
+            for (String line : arrayList) {
+                fileWriter.write(line + "\n");
+            }
+        }
 
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileName));
-            for (String line: arrayList) {
-             fileWriter.write(line + "\n");
-        }
-           fileWriter.close();
-        }
     }
 }
