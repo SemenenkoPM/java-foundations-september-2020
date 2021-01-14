@@ -33,7 +33,7 @@ public class IOStreamsPractice {
 //        }
 
         // try with resources (AutoClosable) // в скобках прописываем BufferedReader
-        try (BufferedReader fileReader = new BufferedReader(new FileReader(file));)
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(file)))
         {
             System.out.println(fileReader.readLine());
         } catch (IOException ioException) {
