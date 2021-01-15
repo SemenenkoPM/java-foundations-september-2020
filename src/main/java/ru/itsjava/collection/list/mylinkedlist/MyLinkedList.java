@@ -17,18 +17,15 @@ public class MyLinkedList {
         }
         return true;
     }
-
-    // Моя реализация. Вопрос, если бежать с curNode.getValue, то последний элемент не попадает, если как сейчас, то если обьект выбранный несодержиться, то ошибка возникнет, как быть?
+    // Моя реализация, переделывал по правкам от Виталия
     public boolean contains(Object o) {
-        Node prevNode = head;
-        if (prevNode.getValue().equals(o)) {
+        if (head.getValue().equals(o)) {
             return true;
         }
-        if (prevNode.getNext() == null) return false;
 
         boolean isContains = false;
-        Node curNode = head.getNext();
-        while (curNode != null) {
+        Node curNode = head;
+        while ((curNode = curNode.getNext()) != null) {
             if (curNode.getValue().equals(o)) {
                 isContains = true;
                 break;
@@ -66,7 +63,7 @@ public class MyLinkedList {
             prevNode.setNext(null);
             realSize--;
         } else {
-            while (prevNode.getNext() != null) { // идем до конца
+            while (curNode != null) { // идем до конца
                 if (curNode.getValue().equals(o)) {
                     prevNode.setNext(curNode.getNext()); // переназначаем ссылку, пропускаем удалемый элемент
                     curNode.setNext(null); // зануляем ссылку удаляемого элемента
@@ -108,9 +105,10 @@ public class MyLinkedList {
             curNode = curNode.getNext();
             curIndex++;
         }
+        Object replacedElement = curNode.getValue();
         curNode.setValue(element);
 
-        return curNode.getValue();
+        return replacedElement;
     }
 
     // Моя реализация
@@ -179,13 +177,19 @@ public class MyLinkedList {
         return curNode.getValue();
     }
 
-    // Моя реализация
+    // Моя реализация// 15.01
     public int indexOf(Object o) {
         int curIndex = 0;
         Node curNode = head;
-        while (!curNode.getValue().equals(o)) {
+        while (curNode != null) {
+            if (curNode.getValue().equals(o)){
+                break;
+            }
             curNode = curNode.getNext();
             curIndex++;
+            if (curNode == null){
+                curIndex = -1;
+            }
         }
         return curIndex;
     }
@@ -194,13 +198,13 @@ public class MyLinkedList {
     public int lastIndexOf(Object o) {
         int curIndex = 0;
         Node curNode = head;
-        int desiredIndex = 0;
-        while (curNode.getNext() != null) {
-            curNode = curNode.getNext();
-            curIndex++;
+        int desiredIndex = -1;
+        while (curNode != null) {
             if (curNode.getValue().equals(o)) {
                 desiredIndex = curIndex;
             }
+            curNode = curNode.getNext();
+            curIndex++;
         }
         return desiredIndex;
     }

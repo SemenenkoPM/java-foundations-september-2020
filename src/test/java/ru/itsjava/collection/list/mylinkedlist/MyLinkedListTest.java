@@ -42,12 +42,12 @@ public class MyLinkedListTest {
 
     @DisplayName(" корректно возвращать 'true' если коллекция содержит о")
     @Test
-    public void shouldHaveCorrectReturnTrueContains() {
+    public void shouldHaveCorrectReturnValueInMehtodContains() {
         MyLinkedList list = new MyLinkedList();
         list.add(DEFAULT_ELEM);
 
-        Assertions.assertEquals(false, list.contains("321"));
-        Assertions.assertEquals(true, list.contains("Elem 1"));
+        Assertions.assertFalse(list.contains("321"));
+        Assertions.assertTrue(list.contains("Elem 1"));
     }
 
     @DisplayName(" возвращать 'true' если коллекция пуста")
@@ -107,7 +107,7 @@ public class MyLinkedListTest {
         Assertions.assertEquals(1, list.indexOf(DEFAULT_ELEM1));
     }
 
-    @DisplayName(" корректно добавлять по элементу")
+    @DisplayName(" корректно добавлять элемент")
     @Test
 
     public void shouldHaveCorrectAddByElement() {

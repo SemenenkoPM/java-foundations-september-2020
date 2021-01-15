@@ -33,8 +33,12 @@ public class MyLinkedListPractice {
 //        System.out.println("linkedList.remove(\"secon\") = " + linkedList.remove("fgr"));
 //        System.out.println("linkedList = " + linkedList);
 //        System.out.println("linkedList.get(0) = " + linkedList.get(2));
-        linkedList.set(3, "er");
+//        linkedList.set(3, "er");
         System.out.println("linkedList = " + linkedList);
+//        System.out.println("linkedList.set(0, \"rtew\") = " + linkedList.set(3, "fgr"));
+        System.out.println("linkedList = " + linkedList);
+        System.out.println("linkedList.indexOf(\"fgr\") = " + linkedList.lastIndexOf("fgr"));
+
     }
 
 }
