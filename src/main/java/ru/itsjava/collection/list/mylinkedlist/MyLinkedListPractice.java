@@ -37,7 +37,14 @@ public class MyLinkedListPractice {
         System.out.println("linkedList = " + linkedList);
 //        System.out.println("linkedList.set(0, \"rtew\") = " + linkedList.set(3, "fgr"));
         System.out.println("linkedList = " + linkedList);
-        System.out.println("linkedList.indexOf(\"fgr\") = " + linkedList.lastIndexOf("fgr"));
+ //       System.out.println("linkedList.indexOf(\"fgr\") = " + linkedList.lastIndexOf("fgr"));
+//        System.out.println("linkedList.contains(\"first\") = " + linkedList.contains("secon"));
+
+        MyLinkedList linkedList3 = new MyLinkedList();
+        System.out.println(linkedList3.indexOf(0));
+//
+//        MyLinkedList linkedList4 = new MyLinkedList();
+//        System.out.println(linkedList4.contains(0));
 
     }
 

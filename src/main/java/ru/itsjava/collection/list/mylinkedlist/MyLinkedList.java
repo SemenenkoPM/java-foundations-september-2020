@@ -19,10 +19,12 @@ public class MyLinkedList {
     }
     // Моя реализация, переделывал по правкам от Виталия
     public boolean contains(Object o) {
+        if (head == null) {
+            return false;
+        }
         if (head.getValue().equals(o)) {
             return true;
         }
-
         boolean isContains = false;
         Node curNode = head;
         while ((curNode = curNode.getNext()) != null) {
@@ -30,7 +32,6 @@ public class MyLinkedList {
                 isContains = true;
                 break;
             }
-            curNode = curNode.getNext();
         }
 
         return isContains;
@@ -81,6 +82,7 @@ public class MyLinkedList {
     // Моя реализация
     public void clear() {
         head = null;
+        realSize = 0;
     }
 
     // Моя реализация
@@ -143,7 +145,7 @@ public class MyLinkedList {
 
     // в классе
     private void checkIndex(int index) {
-        if ((index < 0) || (index > realSize)) {
+        if ((index < 0) || (index >= realSize)) {
             throw new IndexOutOfBoundsException("Index: " + index + " out of bound " + realSize);
         }
     }
@@ -179,6 +181,9 @@ public class MyLinkedList {
 
     // Моя реализация// 15.01
     public int indexOf(Object o) {
+        if (head == null) {
+            return -1;
+        }
         int curIndex = 0;
         Node curNode = head;
         while (curNode != null) {
@@ -196,6 +201,9 @@ public class MyLinkedList {
 
     // Моя реализация
     public int lastIndexOf(Object o) {
+        if (head == null) {
+            return -1;
+        }
         int curIndex = 0;
         Node curNode = head;
         int desiredIndex = -1;
