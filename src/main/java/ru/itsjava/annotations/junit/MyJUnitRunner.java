@@ -6,6 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 public class MyJUnitRunner {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
 
-        new TestRunImpl().start();
+        new TestRunImpl(MyAmazingTest.class).start();
     }
 }

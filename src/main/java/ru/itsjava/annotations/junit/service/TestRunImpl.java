@@ -10,16 +10,22 @@ import java.util.List;
 
 public class TestRunImpl implements TestRun {
 
-    int passedTest = 0;
-    int testFailed = 0;
+    private final Class<?> myTestClass;
 
-    List<Method> listMethodsBefore = new ArrayList<>();
-    List<Method> listMethodsBeforeEach = new ArrayList<>();
-    List<Method> listMethodsAfter = new ArrayList<>();
-    List<Method> listMethodsAfterEach = new ArrayList<>();
-    List<Method> listMethodsTest = new ArrayList<>();
+    private int passedTest = 0;
+    private int testFailed = 0;
+
+    private final List<Method> listMethodsBefore = new ArrayList<>();
+    private final List<Method> listMethodsBeforeEach = new ArrayList<>();
+    private final List<Method> listMethodsAfter = new ArrayList<>();
+    private final List<Method> listMethodsAfterEach = new ArrayList<>();
+    private final List<Method> listMethodsTest = new ArrayList<>();
 
     MyAmazingTest myAmazingTest = new MyAmazingTest();
+
+    public TestRunImpl(Class<?> myTestClass) {
+        this.myTestClass = myTestClass;
+    }
 
     @Override
     public void start() throws InvocationTargetException, IllegalAccessException {
@@ -33,13 +39,13 @@ public class TestRunImpl implements TestRun {
         System.out.println("Тестов завалено " + testFailed);
     }
 
-    public void runMethodsBefore() throws InvocationTargetException, IllegalAccessException {
+    private void runMethodsBefore() throws InvocationTargetException, IllegalAccessException {
         for (Method method : listMethodsBefore) {
             method.invoke(myAmazingTest);
         }
     }
 
-    public void runMethodsBeforeEachTestAfterEach() throws InvocationTargetException, IllegalAccessException {
+    private void runMethodsBeforeEachTestAfterEach() throws InvocationTargetException, IllegalAccessException {
         for (Method methodTest : listMethodsTest) {
             for (Method methodBeforeEach : listMethodsBeforeEach) {
                 methodBeforeEach.invoke(myAmazingTest);
@@ -60,13 +66,13 @@ public class TestRunImpl implements TestRun {
         }
     }
 
-    public void runMethodsAfter() throws InvocationTargetException, IllegalAccessException {
+    private void runMethodsAfter() throws InvocationTargetException, IllegalAccessException {
         for (Method methodAfter : listMethodsAfter) {
             methodAfter.invoke(myAmazingTest);
         }
     }
 
-    public void addMethodsByCollection() {
+    private void addMethodsByCollection() {
         Method[] declaredMethod = MyAmazingTest.class.getDeclaredMethods();
         for (Method method : declaredMethod) {
             if (method.isAnnotationPresent(Before.class)) {
