@@ -73,7 +73,7 @@ public class TestRunImpl implements TestRun {
     }
 
     private void addMethodsByCollection() {
-        Method[] declaredMethod = MyAmazingTest.class.getDeclaredMethods();
+        Method[] declaredMethod = myTestClass.getDeclaredMethods();
         for (Method method : declaredMethod) {
             if (method.isAnnotationPresent(Before.class)) {
                 listMethodsBefore.add(method);
