@@ -4,6 +4,8 @@ package ru.itsjava.homework1.part1;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Collection;
+
 @Getter
 @Setter
 public class Cow {
